@@ -1,0 +1,161 @@
+{
+	"comment": "Core services loaded into the finsemble module",
+	"services": {
+		"startupLauncherService": {
+			"spawnAs": "window",
+			"name": "startupLauncherService",
+			"html": "$servicesRoot/startupLauncher/startupLauncher.html",
+			"file": "$servicesRoot/startupLauncher/startupLauncherService.js",
+			"category": "system"
+		},
+		"workspaceService": {
+			"spawnAs": "window",
+			"name": "workspaceService",
+			"html": "$servicesRoot/workspace/workspace.html",
+			"file": "$servicesRoot/workspace/workspaceService.js",
+			"category": "system"
+		},
+		"storageService": {
+			"spawnAs": "window",
+			"name": "storageService",
+			"html": "$servicesRoot/storage/storage.html",
+			"file": "$servicesRoot/storage/storageService.js",
+			"category": "system"
+		},
+		"linkerService": {
+			"spawnAs": "window",
+			"name": "linkerService",
+			"html": "$servicesRoot/linker/linker.html",
+			"file": "$servicesRoot/linker/linkerService.js",
+			"category": "system",
+			"channels": [{
+					"name": "group1",
+					"color": "#8781BD",
+					"border": "#797381"
+				},
+				{
+					"name": "group2",
+					"color": "#FFE035",
+					"border": "#FFD803"
+				},
+				{
+					"name": "group3",
+					"color": "#89D803",
+					"border": "#71CE47"
+				},
+				{
+					"name": "group4",
+					"color": "#FE6262",
+					"border": "#F83B3B"
+				},
+				{
+					"name": "group5",
+					"color": "#2DACFF",
+					"border": "#039BFF"
+				},
+				{
+					"name": "group6",
+					"color": "#FFA200",
+					"border": "#F29A01"
+				}
+			]
+		},
+		"loggerService": {
+			"showWarningForLogStates": ["Info", "Debug", "Verbose"]
+		},
+		"searchService": {
+			"spawnAs": "window",
+			"name": "searchService",
+			"html": "$servicesRoot/search/search.html",
+			"file": "$servicesRoot/search/searchService.js",
+			"category": "system"
+		},
+		"windowService": {
+			"spawnAs": "window",
+			"name": "windowService",
+			"html": "$servicesRoot/window/windowService.html",
+			"file": "$servicesRoot/window/windowService.js",
+			"config": {
+				"BUFFER_SIZE": 20,
+				"RESIZE_EVENT_THROTTLE_PERIOD": 0,
+				"MINIMUM_WIDTH": 98,
+				"MINIMUM_HEIGHT": 28,
+				"GROUP_MODE": {
+					"enabled": true,
+					"behavior": "explicit"
+				},
+				"DEBUG": true,
+				"ALLOW_GROUPS_TO_SNAP": true,
+				"SNAPPING_OPACITY": 0.8,
+				"groupTileBuffer": 30,
+				"headerHeight": 32,
+				"heartbeatResponseTimeoutDefaults": {
+					"min": 5000,
+					"max": 1800000,
+					"crashed": 60000,
+					"possiblyCrashed": 10000,
+					"notResponding": 5000
+				},
+				"enableWindowsAeroSnap": false,
+				"tabbing": {
+					"enabled": true
+				},
+				"tiling": {
+					"enabled": true
+				}
+			},
+			"category": "system"
+		},
+		"authenticationService": {
+			"spawnAs": "window",
+			"name": "authenticationService",
+			"html": "$servicesRoot/authentication/authentication.html",
+			"file": "$servicesRoot/authentication/authenticationService.js",
+			"category": "system"
+		},
+		"assimilationService": {
+			"spawnAs": "window",
+			"name": "assimilationService",
+			"html": "$servicesRoot/assimilation/assimilation.html",
+			"file": "$servicesRoot/assimilation/assimilationService.js",
+			"category": "system",
+			"config": {
+				"enabled": true,
+				"port": 8392,
+				"useOpenFinSpawn": false,
+				"throttle": 15,
+				"blacklist": [],
+				"whitelist": [],
+				"onlySpawned": true,
+				"focusDelay": 30,
+				"eventIgnore": 50,
+				"hotkeyTimeout": 60000
+			}
+		},
+		"RPCService": {
+			"spawnAs": "window",
+			"active": false,
+			"name": "RPCService",
+			"file": "$servicesRoot/RPC/RPCService.js",
+			"html": "$servicesRoot/RPC/RPC.html",
+			"component": {
+				"type": "service"
+			},
+			"foreign": {
+				"components": {
+					"Window Manager": false
+				}
+			},
+			"window": {
+				"preload": "$moduleRoot/FSBL.js"
+			}
+		},
+		"hotkeysService": {
+			"spawnAs": "window",
+			"name": "hotkeysService",
+			"html": "$servicesRoot/hotkeys/hotkeys.html",
+			"file": "$servicesRoot/hotkeys/hotkeysService.js",
+			"category": "system"
+		}
+	}
+}

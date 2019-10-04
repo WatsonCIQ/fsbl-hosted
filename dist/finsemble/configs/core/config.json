@@ -1,0 +1,74 @@
+{
+	"comment": "Top-level core configuration -- the `hidden` config file that is always automatically loaded. A reference for the configuration tree can be found at https://documentation.chartiq.com/finsemble/tutorial-ConfigReference.html",
+	"system": {
+		"FSBLVersion": "3.12.0",
+		"gitHash": "913188be4619c0ed5d7c516b0f392cdbd1791551",
+		"finsembleLibraryPath": "$moduleRoot/FSBL.js",
+		"premiumRoot": "$moduleRoot",
+		"systemTrayIcon": "$moduleRoot/assets/img/Finsemble_Taskbar_Icon.png",
+		"addFSBLWrappers": false,
+		"saveLogToFileOnShutDown": false,
+		"scheduledRestart": false,
+		"isolateCrossDomainComponents": true,
+		"requiredServiesComment": "These services need to be here because the services.json file is only read after configService is loaded. Router is always started so not in the load order.",
+		"requiredServicesLoadOrder": [
+			"dataStoreService",
+			"configService",
+			"loggerService"
+		],
+		"requiredServicesConfig": {
+			"routerService": {
+				"spawnAs": "process",
+				"name": "routerService",
+				"html": "$servicesRoot/router/router.html",
+				"file": "$servicesRoot/router/routerService.js"
+			},
+			"dataStoreService": {
+				"spawnAs": "window",
+				"name": "dataStoreService",
+				"html": "$servicesRoot/dataStore/dataStore.html",
+				"file": "$servicesRoot/dataStore/dataStoreService.js"
+			},
+			"configService": {
+				"spawnAs": "window",
+				"changeApplicationStateBeforeLoad": "configuring",
+				"changeApplicationStateAfterLoad": "initializing",
+				"name": "configService",
+				"html": "$servicesRoot/config/config.html",
+				"file": "$servicesRoot/config/configService.js"
+			},
+			"loggerService": {
+				"spawnAs": "window",
+				"frame": true,
+				"window": {
+					"defaultWidth": 1400,
+					"defaultHeight": 900,
+					"accelerator": {
+						"zoom": true,
+						"reload": true,
+						"devtools": true
+					},
+					"contextMenu": false
+				},
+				"name": "loggerService",
+				"html": "$servicesRoot/logger/logger.html",
+				"file": "$servicesRoot/logger/loggerService.js"
+			}
+		}
+	},
+	"servicesRoot": "$moduleRoot/services",
+	"thirdPartyRoot": "$moduleRoot/thirdParty",
+	"workspaceTemplates": {
+		"Blank Template": {
+			"name": "Blank Template",
+			"description": "Empty workspace template.",
+			"windows": [],
+			"groups": {},
+			"windowData": []
+		}
+	},
+	"importConfig": [
+		"$moduleRoot/configs/core/services.json",
+		"$moduleRoot/configs/core/securityPolicies.json"
+	]
+}

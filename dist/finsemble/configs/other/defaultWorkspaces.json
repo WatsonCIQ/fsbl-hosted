@@ -1,0 +1,11 @@
+{
+    "comment": "this file defines the default workspaces for development",
+    "workspaces": [
+        {
+            "name": "Default Workspace",
+            "initializedWindows": [],
+            "windows": [],
+            "components": []
+        }
+    ]
+}
